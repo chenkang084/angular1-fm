@@ -1,7 +1,8 @@
-var config = require('./config.json');
-
-module.exports = function() {
-  var greet = document.createElement('div');
-  greet.textContent = config.greetText;
-  return greet;
-};
+"use strict";
+/**
+ * Created by kanchen on 06/12/2016.
+ */
+function greet(name) {
+    return 'Hello ' + name;
+}
+module.exports = greet;

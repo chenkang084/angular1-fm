@@ -6,7 +6,7 @@ console.log(env + "=============================11");
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
-    entry: __dirname + "/app/main.js", //已多次提及的唯一入口文件
+    entry: __dirname + "/app/main.ts", //已多次提及的唯一入口文件
     output: {
         // publicPath:__dirname + "/public",
         path: __dirname + "/public", //打包后的文件存放的地方
@@ -21,12 +21,15 @@ module.exports = {
         progress: true,
         compress: true
     },
-
+    resolve: {
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    },
     module: { //在配置文件里添加JSON loader
-        loaders: [{
-            test: /\.json$/,
-            loader: "json"
-        },
+        loaders: [
+            {
+                test: /\.json$/,
+                loader: "json"
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -34,6 +37,10 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader'
             }
         ]
     },
