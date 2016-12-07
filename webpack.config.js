@@ -2,11 +2,14 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var env = process.argv[3];
+
+
+// window.my = env;
 console.log(env + "=============================11");
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
-    entry: __dirname + "/app/main.ts", //已多次提及的唯一入口文件
+    entry: __dirname + "/app/core/bootstrap.ts", //已多次提及的唯一入口文件
     output: {
         // publicPath:__dirname + "/public",
         path: __dirname + "/public", //打包后的文件存放的地方
@@ -21,9 +24,9 @@ module.exports = {
         progress: true,
         compress: true
     },
-    resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
-    },
+    // resolve: {
+    //     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    // },
     module: { //在配置文件里添加JSON loader
         loaders: [
             {
@@ -52,7 +55,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + "/public/index.html"//new 一个这个插件的实例，并传入相关的参数
-        }),
+        })
+        
 
     ],
 
