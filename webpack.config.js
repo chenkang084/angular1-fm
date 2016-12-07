@@ -1,11 +1,9 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var env = process.argv[3];
+var env = process.env.NODE_ENV;
 
-
-// window.my = env;
-console.log(env + "=============================11");
+console.log(process.env.NODE_ENV + "=============================11");
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
@@ -55,8 +53,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + "/public/index.html"//new 一个这个插件的实例，并传入相关的参数
-        })
-        
+        }),
+        new webpack.DefinePlugin({
+            'process.env': "'"+env+"'",
+        }),
+
 
     ],
 
