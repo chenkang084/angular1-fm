@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var env = process.env.NODE_ENV;
 
-console.log(process.env.NODE_ENV + "=============================11");
+console.log("============================="+process.env.NODE_ENV +"=============================");
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项

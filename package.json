@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=local && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090"
+    "start": "set NODE_ENV=local && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
+    "build-qa": "set NODE_ENV=qa && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090"
   },  
   "author": "",
   "license": "ISC",
