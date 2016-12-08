@@ -1,10 +1,9 @@
-const angular = require('angular');
-const app = angular.module('app', []);
-
-const config = require('../config/config.local.ts');
+let config = require('./initConfig.ts');
+let angular = require('angular');
+const app = angular.module(config.name, []);
 
 angular.element(document).ready( () => {
-   angular.bootstrap(document, ['app'], {
+   angular.bootstrap(document, [config.name], {
        strictDi: true
    });
 });
