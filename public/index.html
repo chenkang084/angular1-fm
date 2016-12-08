@@ -4,12 +4,31 @@
 <head>
     <meta charset="utf-8">
     <title>Webpack Sample Project</title>
+
+    <base href="/">
 </head>
 
 <body>
-    <div id='root'>
-        
-        <my-customer></my-customer>
+    <div id='root'ng-app="Game">
+
+        <!--<ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+            <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+        </ul>
+        <my-customer></my-customer>-->
+
+
+        <div ng-view>
+
+            <!--<home></home>-->
+
+        </div>
 
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js" charset="utf-8"></script>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js" charset="utf-8"></script>-->
+
 </html>
