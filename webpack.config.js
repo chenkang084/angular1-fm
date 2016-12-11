@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var env = process.env.NODE_ENV;
 
-console.log("============================="+process.env.NODE_ENV +"=============================");
+console.log("=============================" + process.env.NODE_ENV + "=============================");
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
@@ -43,6 +43,10 @@ module.exports = {
                 test: /\.scss$/,
                 loader: 'style!css!postcss!sass'
             },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
             // {
             //     test: /\.tsx?$/,
             //     loader: 'ts-loader'
@@ -55,7 +59,7 @@ module.exports = {
             template: __dirname + "/public/index.html"//new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.DefinePlugin({
-            'process.env': "'"+env+"'",
+            'process.env': "'" + env + "'",
         }),
 
 
