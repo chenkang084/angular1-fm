@@ -7,7 +7,17 @@ console.log("=============================" + process.env.NODE_ENV + "==========
 
 module.exports = {
     devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
-    entry: __dirname + "/app/core/bootstrap.js", //已多次提及的唯一入口文件
+    entry: {
+        app:__dirname + "/app/core/bootstrap.js", //已多次提及的唯一入口文件
+        vendor: [
+                 'angular',
+                 'angular-route',
+                 'angular-ui-bootstrap',
+                 'lodash',
+                 'jquery'
+                ],
+    },
+    
     output: {
         // publicPath:__dirname + "/public",
         path: __dirname + "/public", //打包后的文件存放的地方
@@ -61,6 +71,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': "'" + env + "'",
         }),
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
 
 
     ],
