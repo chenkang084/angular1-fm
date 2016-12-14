@@ -1,14 +1,18 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    autoprefixer = require('autoprefixer'),
+    ngAnnotatePlugin = require('ng-annotate-webpack-plugin'),
+    _ = require('lodash'),
+    env = _.trim(process.env.NODE_ENV);
 
-var env = process.env.NODE_ENV;
+console.log("=============================" + env + "=============================");
 
-console.log("=============================" + process.env.NODE_ENV + "=============================");
 
-module.exports = {
-    devtool: 'inline-source-map', //配置生成Source Maps，选择合适的选项
+
+var webpackConfig = {
+    devtool: 'source-map', //generate source map for developing
     entry: {
-        app: __dirname + "/app/core/bootstrap.js", //已多次提及的唯一入口文件
+        app: __dirname + "/app/core/bootstrap.js", //the main file for start app
         vendor: [
             'angular',
             'angular-route',
@@ -72,6 +76,10 @@ module.exports = {
         ]
     },
 
+    postcss: function () {
+        return [autoprefixer];
+    },
+
     plugins: [
         new HtmlWebpackPlugin({
             template: __dirname + "/public/index.html"//new 一个这个插件的实例，并传入相关的参数
@@ -85,9 +93,27 @@ module.exports = {
             jQuery: 'jquery',
             $: 'jquery',
             jquery: 'jquery'
-        })
+        }),
 
+        new ngAnnotatePlugin({ add: true }),
 
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // })
     ],
 
 }
+
+if (env == 'prod') {
+    webpackConfig.plugins = webpackConfig.plugins.concat([
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
+    ]);
+}
+
+module.exports = webpackConfig;

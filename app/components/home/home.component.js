@@ -1,14 +1,15 @@
-let config = require('../../core/initConfig.js');
-let angular = require('angular');
-require('./home.scss');
-
-import name from './test.js';
-
-console.log(name)
+import './home.scss';
+import angular from 'angular';
+import config from '../../core/initConfig.js';
 
 angular.module(config.name)
-.directive('home', function() {
-  return {
-    template: require('./home.html')
-  };
-});
+  .controller('CollapseDemoCtrl', ['$scope', function ($scope) {
+    $scope.isNavCollapsed = true;
+    $scope.isCollapsed = false;
+    $scope.isCollapsedHorizontal = false;
+  }])
+  .directive('home', function () {
+    return {
+      template: require('./home.html'),
+    };
+  });

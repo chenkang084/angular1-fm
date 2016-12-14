@@ -1,9 +1,6 @@
-
 let config = null;
 let env = process.env.trim();
-console.log('>>>',env);
-
-
+// console.log('>>>',env);
 if (env === 'local') {
     config = require('../config/config.local.js');
 } else if(env === 'qa'){

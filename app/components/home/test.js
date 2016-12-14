@@ -1,1 +1,1 @@
-export default name = 'jack';
+export let name = 'jack';

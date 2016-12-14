@@ -1,6 +1,6 @@
-let config = require('../../core/initConfig.js');
-let angular = require('angular');
-require('./nav.scss');
+import './nav.scss';
+import angular from 'angular';
+import config from '../../core/initConfig.js';
 
 angular.module(config.name)
 .directive('nav', function() {
