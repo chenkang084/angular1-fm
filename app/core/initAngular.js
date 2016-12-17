@@ -8,8 +8,8 @@ import "bootstrap-loader";
 const app = angular.module(config.name, [uiBootstrap,ngAnimate,'config']);
 angular.element(document).ready( () => {
    angular.bootstrap(document, [config.name]
-//    ,{
-//        strictDi: true
-//    }
+   ,{
+       strictDi: true
+   }
    );
 });

@@ -13,3 +13,15 @@ angular.module(config.name)
       template: require('./home.html'),
     };
   });
+
+// angular.module(config.name)
+//   .controller('CollapseDemoCtrl', function ($scope) {
+//     $scope.isNavCollapsed = true;
+//     $scope.isCollapsed = false;
+//     $scope.isCollapsedHorizontal = false;
+//   })
+//   .directive('home', function () {
+//     return {
+//       template: require('./home.html'),
+//     };
+//   });

@@ -7,10 +7,8 @@ var webpack = require('webpack'),
 
 console.log("=============================" + env + "=============================");
 
-
-
 var webpackConfig = {
-    devtool: 'source-map', //generate source map for developing
+    devtool: 'cheap-module-source-map', //generate source map for developing
     entry: {
         app: __dirname + "/app/core/bootstrap.js", //the main file for start app
         vendor: [
@@ -18,6 +16,8 @@ var webpackConfig = {
             'angular-route',
             'angular-ui-bootstrap',
             'lodash',
+            'bootstrap',
+            'bootstrap-loader',
             'jquery'
         ],
     },
@@ -47,7 +47,12 @@ var webpackConfig = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
+                exclude: function (path) {
+                    // 路径中含有 node_modules 的就不去解析。
+                    var isNpmModule = !!path.match(/node_modules/);
+                    return isNpmModule;
+                },
                 loader: 'babel', //在webpack的module部分的loaders里进行配置即可
                 query: {
                     presets: ['es2015']
@@ -55,7 +60,8 @@ var webpackConfig = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css!postcss!sass'
+                loader: 'style!css!postcss!sass',
+                exclude: /node_modules/,
             },
             {
                 test: /\.html$/,
