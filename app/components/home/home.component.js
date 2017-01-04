@@ -3,25 +3,18 @@ import angular from 'angular';
 import config from '../../core/initConfig.js';
 
 angular.module(config.name)
-  .controller('CollapseDemoCtrl', ['$scope', function ($scope) {
-    $scope.isNavCollapsed = true;
-    $scope.isCollapsed = false;
-    $scope.isCollapsedHorizontal = false;
-  }])
-  .directive('home', function () {
-    return {
-      template: require('./home.html'),
-    };
-  });
+    .directive('home', function() {
+        return {
+            controller: ['$scope', function($scope) {
+                $scope.test = 'jack';
+                this.test = 'jack';
+                this.status = true;
 
-// angular.module(config.name)
-//   .controller('CollapseDemoCtrl', function ($scope) {
-//     $scope.isNavCollapsed = true;
-//     $scope.isCollapsed = false;
-//     $scope.isCollapsedHorizontal = false;
-//   })
-//   .directive('home', function () {
-//     return {
-//       template: require('./home.html'),
-//     };
-//   });
+                this.change = function() {
+                    this.status = !this.status;
+                }
+            }],
+            controllerAs: 'vm',
+            template: require('./home.html'),
+        };
+    });
