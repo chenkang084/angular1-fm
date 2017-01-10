@@ -2,6 +2,7 @@ var webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
     ngAnnotatePlugin = require('ng-annotate-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     _ = require('lodash'),
     env = _.trim(process.env.NODE_ENV);
 
@@ -24,15 +25,15 @@ var webpackConfig = {
 
     output: {
         // publicPath: __dirname + "/public",
-        path: __dirname + "/public", //打包后的文件存放的地方
-        // filename: "bundle[hash].js" //打包后输出文件的文件名
-        filename: "bundle.js" //打包后输出文件的文件名
+        path: __dirname + "/dist", //the path saving packed file 
+        // filename: "bundle[hash].js" //the out put file name
+        filename: "bundle.js"
     },
     devServer: {
-        contentBase: "./public", //本地服务器所加载的页面所在的目录
-        colors: true, //终端中输出结果为彩色
-        historyApiFallback: true, //不跳转
-        inline: true, //实时刷新
+        contentBase: "./public", //webpack server read file path
+        colors: true, //terminal shows log with color
+        historyApiFallback: true, //
+        inline: true, //
         hot: true,
         progress: true,
         compress: true
@@ -40,7 +41,7 @@ var webpackConfig = {
     // resolve: {
     //     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
     // },
-    module: { //在配置文件里添加JSON loader
+    module: { //
         loaders: [{
                 test: /\.json$/,
                 loader: "json"
@@ -49,7 +50,7 @@ var webpackConfig = {
                 test: /\.js$/,
                 // exclude: /node_modules/,
                 exclude: /node_modules/,
-                loader: 'babel', //在webpack的module部分的loaders里进行配置即可
+                loader: 'babel',
                 query: {
                     presets: ['es2015']
                 }
@@ -85,8 +86,8 @@ var webpackConfig = {
 
     plugins: [
         new HtmlWebpackPlugin({
-
-            template: __dirname + "/public/index.html" //new 一个这个插件的实例，并传入相关的参数
+            filename: './index.html',
+            template: __dirname + "/app/index.html" //packed js append to index.html,set index.html path
         }),
         new webpack.DefinePlugin({
             'process.env': "'" + env + "'",
@@ -98,8 +99,12 @@ var webpackConfig = {
             $: 'jquery',
             jquery: 'jquery'
         }),
+        new CopyWebpackPlugin([{
+            from: './app/assets',
+            to: 'assets'
+        }]),
 
-        new ngAnnotatePlugin({ add: true }),
+        new ngAnnotatePlugin({ add: true })
 
     ],
 
