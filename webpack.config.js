@@ -104,18 +104,13 @@ var webpackConfig = {
 
         new webpack.DllReferencePlugin({
             context: __dirname + "",
-            manifest: require('./app/assets/vendor-manifest.json')
+            manifest: require('./dll/vendor-manifest.json')
         }),
 
         new CopyWebpackPlugin([{
             from: './app/assets',
             to: 'assets'
         }]),
-
-        // new webpack.DllReferencePlugin({
-        //     context: __dirname,
-        //     manifest: require('./dll/vendor-manifest.json')
-        // })
         
     ],
 

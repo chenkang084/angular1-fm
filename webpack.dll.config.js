@@ -2,24 +2,20 @@ const webpack = require('webpack'),
     path = require('path');
 
 const vendors = [
+    'jquery',
     'angular',
+    'lodash',
     'angular-route',
-    'angular-ui-bootstrap',
-    // 'lodash',
+    // 'angular-ui-bootstrap',
     // 'bootstrap',
-    // 'bootstrap-loader',
-    // 'jquery'
+    // 'bootstrap-loader'
+    
 ];
 
 module.exports = {
-    // output: {
-    //     path: path.resolve(__dirname, './app/dll'),
-    //     filename: '[name].dll.js',
-    //     library: '[name]',
-    // },
     output: {
         filename: '[name].dll.js',
-        path: path.resolve(__dirname, './app/assets'),
+        path: path.resolve(__dirname, './dll'),
         library: "[name]"
     },
     entry: {
@@ -66,8 +62,14 @@ module.exports = {
 
     plugins: [
         new webpack.DllPlugin({
-            path: path.resolve(__dirname, './app/assets/[name]-manifest.json'),
+            path: path.resolve(__dirname, './dll/[name]-manifest.json'),
             name: "[name]"
         }),
+
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // })
     ],
 };
