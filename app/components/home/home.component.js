@@ -4,10 +4,14 @@ import config from '../../core/initConfig.js';
 import BaseController from '../../common/base.controller.js';
 import BaseComponent from '../../common/base.component.js';
 
-
+/*@ngInject*/
 class HomeController extends BaseController {
+
     constructor() {
         super();
+
+
+
         console.log();
         this.test = 'jack';
         this.status = true;

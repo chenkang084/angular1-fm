@@ -14,18 +14,19 @@ var webpackConfig = {
         vendor: [
             'angular',
             'angular-route',
-            'angular-ui-bootstrap',
+            // 'angular-ui-bootstrap',
             'lodash',
-            'bootstrap',
-            'bootstrap-loader',
+            // 'bootstrap',
+            // 'bootstrap-loader',
             'jquery'
         ],
     },
 
     output: {
-        // publicPath:__dirname + "/public",
+        // publicPath: __dirname + "/public",
         path: __dirname + "/public", //打包后的文件存放的地方
-        filename: "bundle[hash].js" //打包后输出文件的文件名
+        // filename: "bundle[hash].js" //打包后输出文件的文件名
+        filename: "bundle.js" //打包后输出文件的文件名
     },
     devServer: {
         contentBase: "./public", //本地服务器所加载的页面所在的目录
@@ -40,19 +41,14 @@ var webpackConfig = {
     //     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
     // },
     module: { //在配置文件里添加JSON loader
-        loaders: [
-            {
+        loaders: [{
                 test: /\.json$/,
                 loader: "json"
             },
             {
                 test: /\.js$/,
                 // exclude: /node_modules/,
-                exclude: function (path) {
-                    // 路径中含有 node_modules 的就不去解析。
-                    var isNpmModule = !!path.match(/node_modules/);
-                    return isNpmModule;
-                },
+                exclude: /node_modules/,
                 loader: 'babel', //在webpack的module部分的loaders里进行配置即可
                 query: {
                     presets: ['es2015']
@@ -65,16 +61,17 @@ var webpackConfig = {
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader'
+                loader: 'html-loader',
+                exclude: /node_modules/
             },
-            {
-                test: /bootstrap\/dist\/js\/umd\//,
-                loader: 'imports?jQuery=jquery'
-            },
-            {
-                test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
-                loader: 'file'
-            },
+            // {
+            //     test: /bootstrap\/dist\/js\/umd\//,
+            //     loader: 'imports?jQuery=jquery'
+            // },
+            // {
+            //     test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+            //     loader: 'file'
+            // },
             // {
             //     test: /\.tsx?$/,
             //     loader: 'ts-loader'
@@ -82,18 +79,19 @@ var webpackConfig = {
         ]
     },
 
-    postcss: function () {
+    postcss: function() {
         return [autoprefixer];
     },
 
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + "/public/index.html"//new 一个这个插件的实例，并传入相关的参数
+
+            template: __dirname + "/public/index.html" //new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.DefinePlugin({
             'process.env': "'" + env + "'",
         }),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "vendor.bundle.js"),
 
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
@@ -103,16 +101,12 @@ var webpackConfig = {
 
         new ngAnnotatePlugin({ add: true }),
 
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // })
     ],
 
 }
 
 if (env == 'prod') {
+    console.log("=============================start uglify=============================");
     webpackConfig.plugins = webpackConfig.plugins.concat([
         new webpack.optimize.UglifyJsPlugin({
             compress: {
