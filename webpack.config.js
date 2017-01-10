@@ -7,19 +7,20 @@ var webpack = require('webpack'),
     env = _.trim(process.env.NODE_ENV);
 
 console.log("=============================" + env + "=============================");
+console.log("=============================" + __dirname + "=============================");
 
 var webpackConfig = {
     devtool: 'cheap-module-source-map', //generate source map for developing
     entry: {
         app: __dirname + "/app/core/bootstrap.js", //the main file for start app
         vendor: [
-            'angular',
-            'angular-route',
+            // 'angular',
+            // 'angular-route',
             // 'angular-ui-bootstrap',
-            'lodash',
+            // 'lodash',
             // 'bootstrap',
             // 'bootstrap-loader',
-            'jquery'
+            // 'jquery'
         ],
     },
 
@@ -29,18 +30,18 @@ var webpackConfig = {
         // filename: "bundle[hash].js" //the out put file name
         filename: "bundle.js"
     },
-    devServer: {
-        contentBase: "./public", //webpack server read file path
-        colors: true, //terminal shows log with color
-        historyApiFallback: true, //
-        inline: true, //
-        hot: true,
-        progress: true,
-        compress: true
-    },
-    // resolve: {
-    //     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    // devServer: {
+    //     contentBase: "./public", //webpack server read file path
+    //     colors: true, //terminal shows log with color
+    //     historyApiFallback: true, //
+    //     inline: true, //
+    //     hot: true,
+    //     progress: true,
+    //     compress: true
     // },
+    resolve: {
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+    },
     module: { //
         loaders: [{
                 test: /\.json$/,
@@ -48,7 +49,6 @@ var webpackConfig = {
             },
             {
                 test: /\.js$/,
-                // exclude: /node_modules/,
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
@@ -99,13 +99,24 @@ var webpackConfig = {
             $: 'jquery',
             jquery: 'jquery'
         }),
+
+        new ngAnnotatePlugin({ add: true }),
+
+        new webpack.DllReferencePlugin({
+            context: __dirname + "",
+            manifest: require('./app/assets/vendor-manifest.json')
+        }),
+
         new CopyWebpackPlugin([{
             from: './app/assets',
             to: 'assets'
         }]),
 
-        new ngAnnotatePlugin({ add: true })
-
+        // new webpack.DllReferencePlugin({
+        //     context: __dirname,
+        //     manifest: require('./dll/vendor-manifest.json')
+        // })
+        
     ],
 
 }

@@ -7,7 +7,7 @@ import ngAnimate from 'angular-animate';
 
 
 
-const app = angular.module(config.name, [ngAnimate, 'config']);
+const app = angular.module(config.name, [ ngAnimate, 'config']);
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {
         strictDi: true

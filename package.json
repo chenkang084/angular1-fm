@@ -5,14 +5,14 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "set NODE_ENV=local && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
+        "start": "set NODE_ENV=local && webpack-dev-server --content-base ./ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
         "run-qa": "set NODE_ENV=qa && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
         "run-prod": "set NODE_ENV=prod && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
         "build-qa": "npm run clean && set NODE_ENV=qa && webpack --content-base public/ --progress --colors --inline --compress",
         "build-prod": "set NODE_ENV=prod && webpack --content-base public/ --progress --colors --inline --compress",
         "clean": "rm -rf ./dist/*"
     },
-    "author": "",
+    "author": "chenkang084@163.com",
     "license": "ISC",
     "dependencies": {
         "angular": "^1.5.6",
