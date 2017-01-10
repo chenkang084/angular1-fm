@@ -13,4 +13,6 @@ you need change the base url in index.html to make sure your app runs well.
 
 example:
     your web app (such as apache) root path is : apache/var/www/game  ,then you need change the
-    ```<base href="/"> ```to <base href="/game/">
+    `<base href="/"> `
+    to
+    `<base href="/game/">`
