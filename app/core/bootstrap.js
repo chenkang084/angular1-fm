@@ -6,3 +6,18 @@ import './initAngular.js';
 import './component.js';
 
 
+// import { test } from './testExport.js';
+// import { test } from './testExport.js';
+
+// // console.log(s());
+// var t = new test();
+
+// t.name;
+
+// var m1 = require('./testExport.js');
+
+import { sayHello } from './testExport.js';
+
+console.log();
+sayHello();
+// test();
