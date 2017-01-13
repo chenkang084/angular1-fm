@@ -1,9 +1,9 @@
 import config from './initConfig.js';
 import angular from 'angular';
-// import uiBootstrap from 'angular-ui-bootstrap';
+import uiBootstrap from 'angular-ui-bootstrap';
 import ngAnimate from 'angular-animate';
 // add bootstrap ui
-// import "bootstrap-loader";
+import "bootstrap-loader";
 
 
 

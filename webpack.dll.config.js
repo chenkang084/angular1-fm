@@ -6,10 +6,9 @@ const vendors = [
     'angular',
     'lodash',
     'angular-route',
-    // 'angular-ui-bootstrap',
-    // 'bootstrap',
-    // 'bootstrap-loader'
-    
+    'angular-ui-bootstrap',
+    'bootstrap',
+    'bootstrap-loader'
 ];
 
 module.exports = {
@@ -61,15 +60,22 @@ module.exports = {
     },
 
     plugins: [
+
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery',
+            jquery: 'jquery'
+        }),
+
         new webpack.DllPlugin({
             path: path.resolve(__dirname, './dll/[name]-manifest.json'),
             name: "[name]"
         }),
 
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         warnings: false
-        //     }
-        // })
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ],
 };
