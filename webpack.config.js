@@ -4,6 +4,7 @@ var webpack = require('webpack'),
     ngAnnotatePlugin = require('ng-annotate-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     _ = require('lodash'),
+    path = require('path'),
     env = _.trim(process.env.NODE_ENV);
 
 console.log("=============================" + env + "=============================");
@@ -40,9 +41,16 @@ var webpackConfig = {
     //     compress: true
     // },
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+        alias:{
+            moment:path.join(__dirname,'/node_modules/moment/min/moment-with-locales.js')
+        }
     },
     module: { //
+        noParse: [
+            /moment-with-locales/
+        ],
+
         loaders: [{
                 test: /\.json$/,
                 loader: "json"
@@ -65,14 +73,14 @@ var webpackConfig = {
                 loader: 'html-loader',
                 exclude: /node_modules/
             },
-            // {
-            //     test: /bootstrap\/dist\/js\/umd\//,
-            //     loader: 'imports?jQuery=jquery'
-            // },
-            // {
-            //     test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
-            //     loader: 'file'
-            // },
+            {
+                test: /dist\/js\/umd\//,
+                loader: 'imports?jQuery=jquery'
+            },
+            {
+                test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+                loader: 'file'
+            },
             // {
             //     test: /\.tsx?$/,
             //     loader: 'ts-loader'
@@ -104,7 +112,7 @@ var webpackConfig = {
 
         new webpack.DllReferencePlugin({
             context: __dirname + "",
-            manifest: require('./dll/vendor-manifest.json')
+            manifest: require('./app/assets/dll/vendor-manifest.json')
         }),
 
         new CopyWebpackPlugin([{
