@@ -10,7 +10,8 @@
     "run-prod": "set NODE_ENV=prod && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
     "build-qa": "npm run clean && set NODE_ENV=qa && webpack --content-base public/ --progress --colors --inline --compress",
     "build-prod": "set NODE_ENV=prod && webpack --content-base public/ --progress --colors --inline --compress",
-    "clean": "rm -rf ./dist/*"
+    "clean": "rm -rf ./dist/*",
+    "build-dll":"webpack --config webpack.dll.config.js"
   },
   "author": "chenkang084@163.com",
   "license": "ISC",
@@ -36,6 +37,7 @@
     "node-sass": "^3.4.2",
     "postcss-loader": "^1.2.0",
     "resolve-url-loader": "^1.6.1",
+    "restangular": "^1.6.1",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.3.0",

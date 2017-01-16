@@ -43,7 +43,7 @@ var webpackConfig = {
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
         alias:{
-            // moment:path.join(__dirname,'/node_modules/moment/min/moment-with-locales.js'),
+            moment:path.join(__dirname,'/node_modules/moment/min/moment-with-locales.js'),
             'font-awesome':path.join(__dirname,'/node_modules/font-awesome/scss/font-awesome.scss'),
         }
     },

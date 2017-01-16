@@ -7,7 +7,7 @@ import BaseComponent from '../../common/base.component.js';
 /*@ngInject*/
 class HomeController extends BaseController {
 
-    constructor() {
+    constructor(TestService) {
         super();
 
 
