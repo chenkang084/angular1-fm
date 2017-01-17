@@ -1,5 +1,7 @@
 /**
  * Created by kanchen on 07/12/2016.
+ * bootstrap app 
+ * 
  */
 import '../config/router.js';
 import './initAngular.js';
