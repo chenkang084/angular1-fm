@@ -10,10 +10,9 @@ class HomeController extends BaseController {
     constructor(HomeService) {
         super();
 
-
-        HomeService.testSend().then((data)=>{
-            console.log(data);
-        })
+        // HomeService.testSend().then((data)=>{
+        //     console.log(data);
+        // })
 
         console.log();
         // this.test = 'jack';
