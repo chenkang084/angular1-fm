@@ -1,15 +1,37 @@
 import config from './initConfig.js';
 import angular from 'angular';
-// import uiBootstrap from 'angular-ui-bootstrap';
+import uiBootstrap from 'angular-ui-bootstrap';
 import ngAnimate from 'angular-animate';
-// add bootstrap ui
-// import "bootstrap-loader";
+import 'restangular';
+import "bootstrap-loader"; // add bootstrap ui
+import "font-awesome";
 
 
+const app = angular.module(config.name, [ngAnimate, 'restangular', 'config'])
+    .config(($provide, $httpProvider, RestangularProvider) => {
+        // Restangular base url
+        RestangularProvider.setBaseUrl(config.uri.api);
 
-const app = angular.module(config.name, [ngAnimate, 'config']);
+        // Global http error handler
+        $httpProvider.interceptors.push(($timeout, $q, $rootScope, $location) => {
+            return {
+                request: (config) => {
+                    return config || $q.when(config)
+                },
+                responseError: (response) => {
+                    // if (response.data && response.data.message) {
+                    //     let tplErrorHandler = require('../common/partials/error_handler.html');
+                    //     $rootScope.Util.createDialog(tplErrorHandler, { message: response.data.message }, angular.noop)
+                    // }
+                    return $q.reject(response);
+                }
+            };
+        });
+    })
+
+
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {
-        strictDi: true
+        strictDi: false
     });
 });

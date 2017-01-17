@@ -9,6 +9,6 @@ if (env === 'local') {
     config = require('../config/config.prod.js');
 }
 
-console.log(config);
+// console.log(config);
 
 module.exports = config;
