@@ -7,14 +7,14 @@ import BaseComponent from '../../common/base.component.js';
 /*@ngInject*/
 class HomeController extends BaseController {
 
-    constructor(TestService) {
+    constructor(HomeService) {
         super();
 
 
 
         console.log();
-        this.test = 'jack';
-        this.status = true;
+        // this.test = 'jack';
+        // this.status = true;
 
 
     }

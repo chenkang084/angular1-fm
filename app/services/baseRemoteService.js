@@ -1,5 +1,3 @@
-// const Restangular = require('restangular');
-
 class BaseRemoteService {
 
     constructor(Restangular,name) {

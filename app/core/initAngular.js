@@ -13,7 +13,7 @@ const app = angular.module(config.name, [ngAnimate, 'restangular', 'config']);
 
 
 
-require('../common/test.service.js');
+// require('../common/test.service.js');
 // let t = new TestService();
 
 // app.service('TestService',TestService);
