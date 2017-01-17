@@ -11,6 +11,9 @@ class HomeController extends BaseController {
         super();
 
 
+        HomeService.testSend().then((data)=>{
+            console.log(data);
+        })
 
         console.log();
         // this.test = 'jack';

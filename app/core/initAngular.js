@@ -3,20 +3,32 @@ import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';
 import ngAnimate from 'angular-animate';
 import 'restangular';
-// add bootstrap ui
-import "bootstrap-loader";
+import "bootstrap-loader"; // add bootstrap ui
 import "font-awesome";
-// import "./libs.scss";
 
 
-const app = angular.module(config.name, [ngAnimate, 'restangular', 'config']);
+const app = angular.module(config.name, [ngAnimate, 'restangular', 'config'])
+    .config(($provide, $httpProvider, RestangularProvider) => {
+        // Restangular base url
+        RestangularProvider.setBaseUrl(config.uri.api);
 
+        // Global http error handler
+        $httpProvider.interceptors.push(($timeout, $q, $rootScope, $location) => {
+            return {
+                request: (config) => {
+                    return config || $q.when(config)
+                },
+                responseError: (response) => {
+                    // if (response.data && response.data.message) {
+                    //     let tplErrorHandler = require('../common/partials/error_handler.html');
+                    //     $rootScope.Util.createDialog(tplErrorHandler, { message: response.data.message }, angular.noop)
+                    // }
+                    return $q.reject(response);
+                }
+            };
+        });
+    })
 
-
-// require('../common/test.service.js');
-// let t = new TestService();
-
-// app.service('TestService',TestService);
 
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {

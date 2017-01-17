@@ -1,19 +1,27 @@
+/**
+ * base service
+ * 
+ */
 class BaseRemoteService {
 
-    constructor(Restangular,name) {
+    constructor(Restangular, name) {
         this.Restangular = Restangular;
-        this.name = 'jack';
-
-        this.rest = this.getRest(Restangular);
     }
 
-    test() {
-        // alert();
-    }
 
     getRest(Restangular) {
         return Restangular.all('');
     }
+
+    doGet(method, params) {
+        return this.Restangular.one(method).get(params);
+    }
+
+    doPost(method, params) {
+        return this.Restangular.all(method).post(params);
+    }
+
+
 
 }
 
