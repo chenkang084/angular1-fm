@@ -1,12 +1,32 @@
-class AppInitService{
+class AppInitService {
 
-    constructor(){
-        
+    constructor() {
+        console.log(privateName);
+
+        this.hello = this.hello.bind(this);
     }
+
+    hello(){
+        console.log('public function say hello');
+    }
+    
+    
 
 }
 
-AppInitService.init = function(){
+/**
+ * private property
+ */
+let privateName = 'jack';
+
+function _say(){
+    console.log('private function');
+}
+
+/**
+ * static function
+ */
+AppInitService.init = function() {
     console.log('static init function');
 }
 
