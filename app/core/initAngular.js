@@ -30,8 +30,3 @@ const app = angular.module(config.name, [ngAnimate, 'restangular', 'config'])
     })
 
 
-angular.element(document).ready(() => {
-    angular.bootstrap(document, [config.name], {
-        strictDi: false
-    });
-});
