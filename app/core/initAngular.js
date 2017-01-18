@@ -7,7 +7,8 @@ import "bootstrap-loader"; // add bootstrap ui
 import "font-awesome";
 
 
-const app = angular.module(config.name, [ngAnimate, 'restangular', 'config'])
+const app = angular.module(config.name, [ngAnimate, 'restangular'])
+    .constant('config',config)
     .config(($provide, $httpProvider, RestangularProvider) => {
         // Restangular base url
         RestangularProvider.setBaseUrl(config.uri.api);
@@ -28,10 +29,8 @@ const app = angular.module(config.name, [ngAnimate, 'restangular', 'config'])
             };
         });
     })
+    .run((AppInitService) => {
 
-
-angular.element(document).ready(() => {
-    angular.bootstrap(document, [config.name], {
-        strictDi: false
-    });
-});
+        console.log(11111111111);
+        AppInitService.init();
+    })
