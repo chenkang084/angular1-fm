@@ -31,6 +31,5 @@ const app = angular.module(config.name, [ngAnimate, 'restangular','router'])
     })
     .run((AppInitService) => {
 
-        // console.log(11111111111);
-        // AppInitService.init();
+        AppInitService.init();
     })

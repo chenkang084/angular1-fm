@@ -17,8 +17,6 @@ class AppInitService {
         console.log('init');
 
         this.addPromise(this.initUser());
-        this.addPromise(this.initUser());
-        this.addPromise(this.testPromise());
         
 
         this.$q.all(promises).then((data) => {
@@ -29,29 +27,9 @@ class AppInitService {
     }
 
     initUser() {
-        // return this.InitService.initUserInfo(this.config.user)
-        //     .then((data) => {
-        //         console.log(data)
-        //     })
         return this.InitService.initUserInfo(this.config.user);
     }
 
-    initUser2() {
-        return this.InitService.initUserInfo(this.config.user)
-            .then((data) => {
-                console.log(data)
-            })
-    }
-
-    testPromise() {
-        return new Promise((resolve, reject) => {
-
-            setTimeout(()=>{
-                resolve('testPromise end');
-            },3000)
-            
-        })
-    }
 
     addPromise(promise) {
         return promises.push(promise);
@@ -66,9 +44,7 @@ let promises = [];
 /**
  * private property
  */
-function _say() {
-    console.log('private function');
-}
+
 
 /**
  * static function
