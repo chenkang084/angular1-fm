@@ -35,10 +35,22 @@ class HomeController extends BaseController {
         })
     }
 
+    /**
+     * bindView function will invoke after initialize
+     */
     bindView() {
         console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%home bindaction')
     }
 
+    /**
+     * bindAction is the highest priority invoke
+     * bindView will invoke in BaseController constructor
+     * so it invokes priority most highly
+     * in summary,the invoke order is :
+     *     --> bindAction
+     *          --> initialize
+     *              --> bindView
+     */
     bindAction(){
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> home bindAction");
         return {
