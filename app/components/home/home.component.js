@@ -7,26 +7,43 @@ import BaseComponent from '../../common/base.component.js';
 /*@ngInject*/
 class HomeController extends BaseController {
 
-    constructor(HomeService, AppInitService, $rootScope) {
+    constructor(HomeService, AppInitService, $rootScope, $q) {
         //you need inject the AppInitService to Parent class(BaseController) 
         //so that BaseController can get the AppInitService
-        super(AppInitService);
-
+        super(AppInitService, $rootScope);
+        this.HomeService = HomeService;
+        this.AppInitService = AppInitService;
+        this.$rootScope = $rootScope;
+        this.$q = $q;
         console.log('home');
-        console.log('home');
-
-        
 
     }
 
-    initPage() {
-        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
-
-        // resolve();
+    /**
+     * @returns {promise} you must return a promise object 
+     * so that BaseComponent can async execute other code
+     * note:you must use `resolve or reject` makes sure the 
+     * BaseController can execute then function
+     */
+    initialize() {
+        return new Promise((resolve, reject) => {
+            console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
+            this.HomeService.testSend().then((data) => {
+                console.log(data)
+            })
+            resolve();
+        })
     }
 
-    bindAction() {
-        console.log('+++++++++++++++++++home bindaction')
+    bindView() {
+        console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%home bindaction')
+    }
+
+    bindAction(){
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> home bindAction");
+        return {
+
+        }
     }
 
     change() {
