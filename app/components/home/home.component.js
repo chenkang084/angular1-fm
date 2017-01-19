@@ -20,7 +20,7 @@ class HomeController extends BaseController {
     initPage() {
         console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
 
-        resolve();
+        // resolve();
     }
 
     bindAction() {
