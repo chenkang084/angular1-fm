@@ -8,6 +8,8 @@ import BaseComponent from '../../common/base.component.js';
 class HomeController extends BaseController {
 
     constructor(HomeService, AppInitService, $rootScope) {
+        //you need inject the AppInitService to Parent class(BaseController) 
+        //so that BaseController can get the AppInitService
         super(AppInitService);
 
         console.log('home');
