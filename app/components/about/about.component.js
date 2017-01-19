@@ -4,15 +4,21 @@ import config from '../../core/initConfig.js';
 import BaseController from '../../common/base.controller.js';
 import BaseComponent from '../../common/base.component.js';
 
-class AboutController extends BaseController{
-    constructor(HomeService,AppInitService,$rootScope) {
+class AboutController extends BaseController {
+    constructor(HomeService, AppInitService, $rootScope) {
         super(AppInitService);
 
         console.log('base')
-        // this.test = 'jack';
-        // this.status = true;
+            // this.test = 'jack';
+            // this.status = true;
 
 
+    }
+
+    initPage() {
+        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^AboutController initPage')
+
+        // resolve();
     }
 }
 
