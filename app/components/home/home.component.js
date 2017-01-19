@@ -7,21 +7,25 @@ import BaseComponent from '../../common/base.component.js';
 /*@ngInject*/
 class HomeController extends BaseController {
 
-    constructor(HomeService) {
-        super();
+    constructor(HomeService, AppInitService, $rootScope) {
+        super(AppInitService);
 
-        // HomeService.testSend().then((data)=>{
-        //     console.log(data);
-        // })
+        console.log('home');
+        console.log('home');
 
-        console.log();
-        // this.test = 'jack';
-        // this.status = true;
-
+        
 
     }
 
-    // test = 'rose';
+    initPage() {
+        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
+
+        resolve();
+    }
+
+    bindAction() {
+        console.log('+++++++++++++++++++home bindaction')
+    }
 
     change() {
         this.status = !this.status;
@@ -39,26 +43,29 @@ class HomePage extends BaseComponent {
 
 let homePage = new HomePage();
 
-console.log();
+/*
+angular.module(config.name)
+    .directive('home', function() {
+        return {
+            controller: ['$scope', function($scope) {
+                $scope.test = 'jack';
+                this.test = 'jack';
+                this.status = true;
 
-// angular.module(config.name)
-//     .directive('home', function() {
-//         return {
-//             controller: ['$scope', function($scope) {
-//                 $scope.test = 'jack';
-//                 this.test = 'jack';
-//                 this.status = true;
-
-//                 this.change = function() {
-//                     this.status = !this.status;
-//                 }
-//             }],
-//             controllerAs: 'vm',
-//             template: require('./home.html'),
-//         };
-//     });
+                this.change = function() {
+                    this.status = !this.status;
+                }
+            }],
+            controllerAs: 'vm',
+            template: require('./home.html'),
+        };
+    });
 
 angular.module(config.name)
     .directive('home', function() {
         return new HomePage();
     });
+*/
+
+angular.module(config.name)
+    .component('home', new HomePage());

@@ -6,6 +6,8 @@ class AppInitService {
         this.$q = $q;
 
         this.hello = this.hello.bind(this);
+
+        console.log('&&&&&&&&&&&&&&&&&&& AppInitService constructor');
     }
 
     hello() {
@@ -33,6 +35,10 @@ class AppInitService {
 
     addPromise(promise) {
         return promises.push(promise);
+    }
+
+    done(){
+        return this.$q.all(promises);
     }
 
 }
