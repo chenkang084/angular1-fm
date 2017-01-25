@@ -4,7 +4,8 @@ a simple demo that shows how to use webpack to integrate ts,sass,es6
 
 steps:
   1. npm install
-  2. npm start
+  2. npm run build-dll
+  3. npm start
 
 
 note:
