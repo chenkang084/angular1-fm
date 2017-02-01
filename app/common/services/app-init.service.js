@@ -1,5 +1,5 @@
 /**
- * initalize the app 
+ * initialize the app 
  * you can write some init functions in the service 
  * all components will wait for the done function 
  * then invoke the component's functions 
@@ -36,7 +36,7 @@ class AppInitService {
             setTimeout(() => {
                 console.log('AppInitService test function end after 6s')
                 resolve();
-            }, 6000)
+            }, 3000)
         })
     }
 

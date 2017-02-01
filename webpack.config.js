@@ -11,7 +11,7 @@ console.log("=============================" + env + "===========================
 console.log("=============================" + __dirname + "=============================");
 
 var webpackConfig = {
-    devtool: 'cheap-module-source-map', //generate source map for developing
+    devtool: 'source-map', //generate source map for developing
     entry: {
         app: __dirname + "/app/core/bootstrap.js", //the main file for start app
         vendor: [
