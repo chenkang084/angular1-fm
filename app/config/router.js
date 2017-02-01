@@ -2,7 +2,7 @@ let angular = require('angular');
 let ngRouter = require('angular-route');
 const routerConifg = require('./router.config.js');
 
-angular.module("config", [ngRouter]).config(function ($routeProvider, $locationProvider) {
+angular.module("router", [ngRouter]).config(function ($routeProvider, $locationProvider) {
     if (routerConifg != null && routerConifg.length > 0) {
         routerConifg.map((configItem, index) => {
             if (configItem.component) {

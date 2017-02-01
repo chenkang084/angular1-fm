@@ -5,10 +5,16 @@ import ngAnimate from 'angular-animate';
 import 'restangular';
 import "bootstrap-loader"; // add bootstrap ui
 import "font-awesome";
+import BootstrapService from "../common/services/bootstrap.service.js";
 
+<<<<<<< HEAD
 
 const app = angular.module(config.name, [ngAnimate, 'restangular'])
     .constant('config',config)
+=======
+const app = angular.module(config.name, [ngAnimate, 'restangular', 'router'])
+    .constant('config', config)
+>>>>>>> master
     .config(($provide, $httpProvider, RestangularProvider) => {
         // Restangular base url
         RestangularProvider.setBaseUrl(config.uri.api);
@@ -30,7 +36,16 @@ const app = angular.module(config.name, [ngAnimate, 'restangular'])
         });
     })
     .run((AppInitService) => {
+<<<<<<< HEAD
 
         console.log(11111111111);
+=======
+        // console.log("=======================" + BootstrapService.resolve);
+
+        // BootstrapService.name();
+        BootstrapService.resolve();
+        // console.log("=======================" + BootstrapService.resolve);
+
+>>>>>>> master
         AppInitService.init();
     })
