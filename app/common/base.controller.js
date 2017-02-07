@@ -1,6 +1,5 @@
-import BootstrapService from './services/bootstrap.service.js'
-// import { np as NprogressService } from './services/nprogress.service.js'
-
+// import BootstrapService from './services/bootstrap.service.js'
+import Promise from './services/promise.service.js';
 let NprogressService = require('./services/nprogress.service.js');
 
 class BaseController {
@@ -24,7 +23,8 @@ class BaseController {
     }
 
     initialize() {
-        return new Promise((resolve) => {
+        let self = this;
+        return new Promise(function(resolve) {
             resolve();
         })
     }
@@ -38,15 +38,22 @@ class BaseController {
     }
 
     pageInit() {
-        return new Promise((resolve) => {
+        let self = this;
+        console.log('>>>>>>>>>>>>>>>>>>>>>pageInit+++++++++++++=')
+        return new Promise(function(resolve) {
             NprogressService.start();
-            this.initialize().then(() => {
+            self.initialize().then(function() {
                 console.log('base finished initialize')
 
                 NprogressService.done();
                 resolve();
             })
         })
+
+        // return new Promise(function(resolve) {
+
+        //     resolve();
+        // })
     }
 
 
