@@ -10,12 +10,6 @@ import './component.js';
 import config from './initConfig.js';
 import angular from 'angular';
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> master
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {
         strictDi: false

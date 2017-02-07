@@ -13,17 +13,10 @@ class AppInitService {
     }
 
 
-<<<<<<< HEAD
-    constructor(config, InitService, $q, $http) {
-        this.config = config;
-        this.InitService = InitService;
-        this.$q = $q;
-=======
     /**
      * init the app
      */
     init() {
->>>>>>> master
 
         this.addPromise(this.initUser());
 
@@ -34,60 +27,9 @@ class AppInitService {
         })
     }
 
-<<<<<<< HEAD
-    hello() {
-        console.log('public function say hello');
-    }
-
-
-    init() {
-        console.log('init');
-
-        this.addPromise(this.initUser());
-        this.addPromise(this.initUser());
-        this.addPromise(this.testPromise());
-        
-
-        this.$q.all(promises).then((data) => {
-            console.log(data);
-        })
-
-        console.log('............add promise has ended!');
-    }
-
-    initUser() {
-        // return this.InitService.initUserInfo(this.config.user)
-        //     .then((data) => {
-        //         console.log(data)
-        //     })
-        return this.InitService.initUserInfo(this.config.user);
-    }
-
-    initUser2() {
-        return this.InitService.initUserInfo(this.config.user)
-            .then((data) => {
-                console.log(data)
-            })
-    }
-
-    testPromise() {
-        return new Promise((resolve, reject) => {
-
-            setTimeout(()=>{
-                resolve('testPromise end');
-            },3000)
-            
-        })
-    }
-
-    addPromise(promise) {
-        return promises.push(promise);
-    }
-=======
     initUser() {
         return this.InitService.initUserInfo(this.config.user);
     }
->>>>>>> master
 
     test() {
         return new Promise((resolve, reject) => {
@@ -98,17 +40,6 @@ class AppInitService {
         })
     }
 
-<<<<<<< HEAD
-/**
- * private property
- */
-let promises = [];
-/**
- * private property
- */
-function _say() {
-    console.log('private function');
-=======
     /**
      * @param {object} add a promise object to the array
      * @return {promises} return the promise array
@@ -125,7 +56,6 @@ function _say() {
         return this.$q.all(promises);
     }
 
->>>>>>> master
 }
 
 /**
@@ -133,14 +63,6 @@ function _say() {
  * since es6 don't support static property
  * only support static function
  */
-<<<<<<< HEAD
-// AppInitService.init = function() {
-
-//     console.log('static ');
-
-// }
-=======
 let promises = [];
->>>>>>> master
 
 module.exports = AppInitService;
