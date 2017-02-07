@@ -1,8 +1,8 @@
 import './about.scss';
 import angular from 'angular';
 import config from '../../core/initConfig.js';
-import BaseController from '../../common/base.controller.js';
-import BaseComponent from '../../common/base.component.js';
+import BaseController from '../../common/base/base.controller.js';
+import BaseComponent from '../../common/base/base.component.js';
 
 class AboutController extends BaseController {
     constructor(HomeService, AppInitService, $rootScope) {
