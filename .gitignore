@@ -5,5 +5,11 @@ typings
 debug.log
 .idea/
 npm-debug.log
+<<<<<<< HEAD
 app/assets/dll/*
 test
+=======
+test
+d1
+
+>>>>>>> 8842ed9b43e53366b85ac9949d8f86605f44df9d
