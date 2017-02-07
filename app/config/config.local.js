@@ -3,7 +3,7 @@ const config = {
     uri: {
         base: '/',
         host: '/',
-        api: "https://customerdna.corp.ebay.com/game-be/"
+        api: "http://localhost:8080/game-be/"
     },
     user: {
         nt: 'kanchen',
