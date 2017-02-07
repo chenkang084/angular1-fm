@@ -20,7 +20,7 @@ class AppInitService {
 
         this.addPromise(this.initUser());
 
-        this.addPromise(this.test());
+        // this.addPromise(this.test());
 
         this.$q.all(promises).then((data) => {
             console.log(data);

@@ -1,5 +1,7 @@
 import BootstrapService from './services/bootstrap.service.js'
+// import { np as NprogressService } from './services/nprogress.service.js'
 
+let NprogressService = require('./services/nprogress.service.js');
 
 class BaseController {
     constructor(AppInitService, $rootScope) {
@@ -31,14 +33,17 @@ class BaseController {
         console.log('>>>>>>>>>>>>>>>>>>>>>home bindaction')
     }
 
-    bindAction(){
+    bindAction() {
 
     }
 
     pageInit() {
         return new Promise((resolve) => {
+            NprogressService.start();
             this.initialize().then(() => {
                 console.log('base finished initialize')
+
+                NprogressService.done();
                 resolve();
             })
         })

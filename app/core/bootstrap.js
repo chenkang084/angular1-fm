@@ -9,6 +9,7 @@ import './services.js';
 import './component.js';
 import config from './initConfig.js';
 import angular from 'angular';
+import './libs.scss';
 
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {
