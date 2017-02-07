@@ -5,4 +5,5 @@ typings
 debug.log
 .idea/
 npm-debug.log
+app/assets/dll/*
 test
