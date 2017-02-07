@@ -4,6 +4,9 @@
  * all components will wait for the done function 
  * then invoke the component's functions 
  */
+
+const Promise = require('bluebird');
+
 class AppInitService {
     constructor(config, InitService, $q, $http) {
         this.config = config;
@@ -18,9 +21,9 @@ class AppInitService {
      */
     init() {
 
-        this.addPromise(this.initUser());
+        // this.addPromise(this.initUser());
 
-        this.addPromise(this.test());
+        // this.addPromise(this.test());
 
         this.$q.all(promises).then((data) => {
             console.log(data);

@@ -3,6 +3,7 @@ import angular from 'angular';
 import config from '../../core/initConfig.js';
 import BaseController from '../../common/base.controller.js';
 import BaseComponent from '../../common/base.component.js';
+import Promise from '../../common/services/promise.service.js';
 
 /*@ngInject*/
 class HomeController extends BaseController {
@@ -26,9 +27,11 @@ class HomeController extends BaseController {
      * BaseController can execute then function
      */
     initialize() {
-        return new Promise((resolve, reject) => {
+        let self = this;
+        console.log('============================================');
+        return new Promise(function(resolve, reject) {
             console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
-            this.HomeService.testSend().then((data) => {
+            self.HomeService.testSend().then(function(data) {
                 console.log(data)
             })
             resolve();
@@ -51,7 +54,7 @@ class HomeController extends BaseController {
      *          --> initialize
      *              --> bindView
      */
-    bindAction(){
+    bindAction() {
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> home bindAction");
         return {
 

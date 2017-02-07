@@ -1,5 +1,6 @@
-import BootstrapService from './services/bootstrap.service.js'
-
+// import BootstrapService from './services/bootstrap.service.js'
+import Promise from './services/promise.service.js';
+let NprogressService = require('./services/nprogress.service.js');
 
 class BaseController {
     constructor(AppInitService, $rootScope) {
@@ -22,7 +23,8 @@ class BaseController {
     }
 
     initialize() {
-        return new Promise((resolve) => {
+        let self = this;
+        return new Promise(function(resolve) {
             resolve();
         })
     }
@@ -31,17 +33,27 @@ class BaseController {
         console.log('>>>>>>>>>>>>>>>>>>>>>home bindaction')
     }
 
-    bindAction(){
+    bindAction() {
 
     }
 
     pageInit() {
-        return new Promise((resolve) => {
-            this.initialize().then(() => {
+        let self = this;
+        console.log('>>>>>>>>>>>>>>>>>>>>>pageInit+++++++++++++=')
+        return new Promise(function(resolve) {
+            NprogressService.start();
+            self.initialize().then(function() {
                 console.log('base finished initialize')
+
+                NprogressService.done();
                 resolve();
             })
         })
+
+        // return new Promise(function(resolve) {
+
+        //     resolve();
+        // })
     }
 
 
