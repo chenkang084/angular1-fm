@@ -1,5 +1,5 @@
 const config = {
-    name: 'Game',
+    name: 'MyApp',
     uri: {
         base: '/',
         host: '/',

@@ -2,7 +2,7 @@ const routerConfig = [{
         url: '/',
         component: 'home',
         params: {
-            name: "home",
+            name: "Home",
             label: "Home",
             // reloadOnSearch: true
         }
@@ -11,8 +11,8 @@ const routerConfig = [{
         url: '/about',
         component: 'about',
         params: {
-            name: "about",
-            label: "about",
+            name: "About",
+            label: "About",
             // reloadOnSearch: true
         }
     }

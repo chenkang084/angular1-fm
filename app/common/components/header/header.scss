@@ -16,9 +16,37 @@
         li {
             float: left;
             padding: 0 15px;
+            position: relative;
             a {
                 color: #9d9d9d;
+                transition: transform 0.3s ease-in-out;
+                transform: translateY(0);
+                opacity: 1;
+                display: block;
             }
+        }
+        li:before {
+            opacity: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        li:hover,
+        li:focus,
+        li:active {
+            a {
+                transform: translateY(-5px);
+            }
+        }
+        li:hover:before {
+            opacity: 1;
         }
         .active {
             background: #000;
