@@ -11,14 +11,12 @@ class HomeController extends BaseController {
     constructor(HomeService, AppInitService, $rootScope, $q, config) {
         //you need inject the AppInitService to Parent class(BaseController) 
         //so that BaseController can get the AppInitService
-
-        console.log('==================home controller ================')
         super(AppInitService, $rootScope);
         this.HomeService = HomeService;
         this.AppInitService = AppInitService;
         this.$rootScope = $rootScope;
         this.$q = $q;
-        this.pageName = 'home'
+        this.pageName = 'home';
 
     }
 

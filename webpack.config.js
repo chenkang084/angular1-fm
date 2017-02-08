@@ -11,7 +11,7 @@ console.log("=============================" + env + "===========================
 console.log("=============================" + __dirname + "=============================");
 
 var webpackConfig = {
-    devtool: 'source-map', //generate source map for developing
+    devtool: 'cheap-module-source-map', //generate source map for developing
     entry: {
         app: __dirname + "/app/core/bootstrap.js", //the main file for start app
         vendor: [
@@ -42,9 +42,9 @@ var webpackConfig = {
     // },
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
-        alias:{
-            moment:path.join(__dirname,'/node_modules/moment/min/moment-with-locales.js'),
-            'font-awesome':path.join(__dirname,'/node_modules/font-awesome/scss/font-awesome.scss'),
+        alias: {
+            moment: path.join(__dirname, '/node_modules/moment/min/moment-with-locales.js'),
+            'font-awesome': path.join(__dirname, '/node_modules/font-awesome/scss/font-awesome.scss'),
         }
     },
     module: { //
@@ -120,7 +120,7 @@ var webpackConfig = {
             from: './app/assets',
             to: 'assets'
         }]),
-        
+
     ],
 
 }

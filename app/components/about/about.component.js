@@ -6,13 +6,10 @@ import BaseComponent from '../../common/base/base.component.js';
 
 class AboutController extends BaseController {
     constructor(HomeService, AppInitService, $rootScope) {
-        super(AppInitService);
-
-        console.log('base')
-            // this.test = 'jack';
-            // this.status = true;
-
-
+        super(AppInitService, $rootScope);
+        this.HomeService = HomeService;
+        this.AppInitService = AppInitService;
+        this.$rootScope = $rootScope;
     }
 
     initPage() {
