@@ -8,11 +8,11 @@
 const Promise = require('bluebird');
 
 class AppInitService {
-    constructor(config, InitService, $q, $http) {
+    constructor(config, InitService, $q, $http, $rootScope) {
         this.config = config;
         this.InitService = InitService;
         this.$q = $q;
-
+        this.$rootScope = $rootScope;
     }
 
 
@@ -20,6 +20,11 @@ class AppInitService {
      * init the app
      */
     init() {
+
+        this.$rootScope.$on('$routeChangeSuccess', ($event, current) => {
+            this.$rootScope.currentPage = current.name;
+            this.$rootScope.currentPageTrackingName = current.trackingName;
+        });
 
         // this.addPromise(this.initUser());
 
