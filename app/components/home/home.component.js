@@ -1,8 +1,8 @@
 import './home.scss';
 import angular from 'angular';
 import config from '../../core/initConfig.js';
-import BaseController from '../../common/base.controller.js';
-import BaseComponent from '../../common/base.component.js';
+import BaseController from '../../common/base/base.controller.js';
+import BaseComponent from '../../common/base/base.component.js';
 import Promise from '../../common/services/promise.service.js';
 
 /*@ngInject*/
@@ -28,10 +28,9 @@ class HomeController extends BaseController {
      */
     initialize() {
         let self = this;
-        console.log('============================================');
-        return new Promise(function(resolve, reject) {
+        return new Promise((resolve, reject) => {
             console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^home controller initPage')
-            self.HomeService.testSend().then(function(data) {
+            self.HomeService.testSend().then((data) => {
                 console.log(data)
             })
             resolve();
@@ -76,30 +75,6 @@ class HomePage extends BaseComponent {
 }
 
 let homePage = new HomePage();
-
-/*
-angular.module(config.name)
-    .directive('home', function() {
-        return {
-            controller: ['$scope', function($scope) {
-                $scope.test = 'jack';
-                this.test = 'jack';
-                this.status = true;
-
-                this.change = function() {
-                    this.status = !this.status;
-                }
-            }],
-            controllerAs: 'vm',
-            template: require('./home.html'),
-        };
-    });
-
-angular.module(config.name)
-    .directive('home', function() {
-        return new HomePage();
-    });
-*/
 
 angular.module(config.name)
     .component('home', new HomePage());

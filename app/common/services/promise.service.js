@@ -1,3 +1,7 @@
+/**
+ * for compatible ie browser and need ie > 8
+ */
+
 let Promise;
 
 if (window.Promise) {

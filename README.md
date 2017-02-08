@@ -1,6 +1,7 @@
-# webpack
+# angular1-fm
 
-a simple demo that shows how to use webpack to integrate ts,sass,es6
+An easy development framework based on angular1.5 using es6 , the management of packages uses webpack.
+The framework has packaged base controller ,base component ,you just extends them .
 
 steps:
   1. npm install
