@@ -6,8 +6,8 @@ let NprogressService = require('../services/nprogress.service.js');
 class BaseController {
     constructor(AppInitService, $rootScope, config) {
         this.$rootScope = $rootScope;
-        let self = this;
         this.actions = this.bindAction();
+        let self = this;
 
         AppInitService.done().then(() => {
             console.log('***************************app init service end')
@@ -56,8 +56,6 @@ class BaseController {
             })
         })
     }
-
-
 }
 
 module.exports = BaseController;
