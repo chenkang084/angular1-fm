@@ -1,0 +1,10 @@
+<nav id="fm-nav" class="clear-float animated slideInDown">
+    <div class="fm-nav-name">
+        <a ng-bind="vm.config.name" href="/"></a>
+    </div>
+    <ul>
+        <li ng-repeat="router in vm.routers" ng-class="{active:vm.$rootScope.currentPage === router.params.name}">
+            <a ng-bind="router.params.name" ng-href="{{router.url}}"></a>
+        </li>
+    </ul>
+</nav>

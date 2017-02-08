@@ -9,7 +9,8 @@ const config = {
         nt: 'kanchen',
         firstName: 'Kang',
         lastName: 'Chen'
-    }
+    },
+    debug: true
 }
 
 module.exports = config;

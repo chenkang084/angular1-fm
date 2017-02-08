@@ -5,7 +5,9 @@ import ngAnimate from 'angular-animate';
 import 'restangular';
 import "bootstrap-loader"; // add bootstrap ui
 import "font-awesome";
-import BootstrapService from "../common/services/bootstrap.service.js";
+
+
+// import BootstrapService from "../common/services/bootstrap.service.js";
 
 const app = angular.module(config.name, [ngAnimate, 'restangular', 'router'])
     .constant('config', config)
@@ -32,8 +34,7 @@ const app = angular.module(config.name, [ngAnimate, 'restangular', 'router'])
     .run((AppInitService) => {
         // console.log("=======================" + BootstrapService.resolve);
 
-        // BootstrapService.name();
-        BootstrapService.resolve();
+        // BootstrapService.resolve();
         // console.log("=======================" + BootstrapService.resolve);
 
         AppInitService.init();

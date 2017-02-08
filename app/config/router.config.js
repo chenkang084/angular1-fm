@@ -1,15 +1,5 @@
-const routerConfig = [
-    {
+const routerConfig = [{
         url: '/',
-        component: 'home',
-        params: {
-            name: "home",
-            label: "Home",
-            // reloadOnSearch: true
-        }
-    },
-    {
-        url: '/home',
         component: 'home',
         params: {
             name: "home",

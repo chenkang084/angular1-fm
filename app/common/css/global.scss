@@ -1,0 +1,19 @@
+//clear float
+.clear-float:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+ul {
+    li {
+        list-style-type: none;
+    }
+}
+
+a {
+    text-decoration: none !important;
+    outline: none;
+}

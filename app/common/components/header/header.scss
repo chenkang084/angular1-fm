@@ -1,0 +1,30 @@
+#fm-nav {
+    height: 45px;
+    line-height: 45px;
+    background: #333;
+    .fm-nav-name {
+        float: left;
+        font-size: 18px;
+        padding: 0 20px;
+        a {
+            color: #fff;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            padding: 0 15px;
+            a {
+                color: #9d9d9d;
+            }
+        }
+        .active {
+            background: #000;
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
