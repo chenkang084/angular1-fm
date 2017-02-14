@@ -1,4 +1,4 @@
-import BaseRemoteService from './BaseRemoteService.js';
+import BaseRemoteService from './baseRemoteService.js';
 import config from '../core/initConfig.js';
 
 class InitService extends BaseRemoteService {
