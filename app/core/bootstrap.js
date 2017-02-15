@@ -10,6 +10,7 @@ import './component.js';
 import config from './initConfig.js';
 import angular from 'angular';
 import './libs.scss';
+require('es6-promise').polyfill();
 
 angular.element(document).ready(() => {
     angular.bootstrap(document, [config.name], {
