@@ -1,5 +1,4 @@
 // import BootstrapService from './services/bootstrap.service.js'
-import Promise from '../services/promise.service.js';
 import Config from '../../core/initConfig.js';
 let NprogressService = require('../services/nprogress.service.js');
 

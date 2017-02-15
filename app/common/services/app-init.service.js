@@ -5,7 +5,7 @@
  * then invoke the component's functions 
  */
 
-const Promise = require('bluebird');
+// const Promise = require('bluebird');
 
 class AppInitService {
     constructor(config, InitService, $q, $http, $rootScope) {

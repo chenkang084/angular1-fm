@@ -3,7 +3,6 @@ import angular from 'angular';
 import config from '../../core/initConfig.js';
 import BaseController from '../../common/base/base.controller.js';
 import BaseComponent from '../../common/base/base.component.js';
-import Promise from '../../common/services/promise.service.js';
 
 /*@ngInject*/
 class HomeController extends BaseController {
