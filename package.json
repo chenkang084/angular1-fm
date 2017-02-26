@@ -8,6 +8,7 @@
     "start": "set NODE_ENV=local && webpack-dev-server --content-base ./ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
     "run-qa": "set NODE_ENV=qa && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
     "run-prod": "set NODE_ENV=prod && webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
+    "build-local": "set NODE_ENV=local && webpack --content-base public/ --progress --colors --inline --compress",
     "build-qa": "npm run clean && set NODE_ENV=qa && webpack --content-base public/ --progress --colors --inline --compress",
     "build-prod": "set NODE_ENV=prod && webpack --content-base public/ --progress --colors --inline --compress",
     "clean": "rimraf ./app/assets/dll/*",
