@@ -5,20 +5,124 @@
     <meta charset="utf-8">
     <title>angular framework</title>
     <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
-    <base href="/">
+    <!--<base href="/">-->
+    
+    <script src="http://10.240.205.10/dashboard/static/dashboard/js/76adef98ad14.js"></script>
+
+    <script type="text/javascript">try {
+        var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};
+        var AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+        var AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+        var AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+        var AG_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };
+        } catch (ex) { console.error('Error executing AG js: ' + ex); }
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
+        // make translation info available on client
+        horizon.languageCode = 'zh-cn';
+        horizon.languageBidi = 'False';
+        horizon.datepickerLocale = '';
+
+        /* Load angular modules extensions list before we include angular/horizon.js */
+        var angularModuleExtension = ['hz.dashboard', 'hz.dashboard.project', 'hz.dashboard.project.overview', 'hz.dashboard', 'hz.dashboard.admin', 'hz.dashboard', 'hz.dashboard.identity', 'hz.dashboard', 'hz.dashboard.settings'];
+    </script>
+
+    <script src="http://10.240.205.10/dashboard/static/dashboard/js/552639b634ba.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        /* Storage for backend configuration variables which the frontend
+        * should be aware of.
+        */
+
+        angular.module('horizon.app')
+        .config(['horizon.app.conf', function (hzConfig) {
+            hzConfig.debug = false;
+            hzConfig.static_url = "/dashboard/static/";
+            hzConfig.ajax = {
+            queue_limit: 10
+            };
+            hzConfig.auto_fade_alerts = {
+            delay: 3000,
+            fade_duration: 1500,
+            types: ['alert-success', 'alert-info']
+            };
+        }]);
+
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
+        /*
+            Added so that we can append Horizon scoped JS events to
+            the DOM load events without running in to the "horizon"
+            name-space not currently being defined since we load the
+            scripts at the bottom of the page.
+        */
+        var addHorizonLoadEvent = function(func) {
+            var old_onload = window.onload;
+
+            if (typeof window.onload != 'function') {
+            window.onload = func;
+            } else {
+            window.onload = function() {
+                old_onload();
+                func();
+            }
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="http://10.240.205.10/dashboard/i18n/js/horizon%2Beasystack_dashboard%2Blenovo_dashboard/"></script>
+
+    <script type="text/javascript">
+        var STATIC_URL = "/dashboard/static/";
+        var WEBROOT = "/dashboard/";
+        var DEBUG_TOAST_ENABLED = "False";
+        var ISPUBLICREGION = "False";
+    </script>
+
+    <script src="http://10.240.205.10/dashboard/static/dashboard/js/53c72ee9d141.js"></script>
+    <!--<script src="http://10.240.205.10/dashboard/static/dashboard/js/3df64c5edd64.js"></script>-->
+    <script src="http://10.240.205.10/dashboard/static/dashboard/js/a901f805b503.js"></script>
+    <script src="http://10.240.205.10/dashboard/static/dashboard/js/7f67b5281c43.js"></script>
+
+    <script type="text/html" id="modal_template"><div class="windPane modal hide"><div class="wind_top"><h4><span class="f16">{{title}}</span><a data-dismiss="modal" href="#" class="closed">&times;</a></h4></div><div class="windMain"><div class="windContent p10"><div class="f14"style="width:280px;      padding-right:30px;padding-left:30px;margin:15px 0;" >{{body}}</div></div></div><div class="btnWarp"><div class="Private_btn txt-r"><a href='javascript:;' class='btn_3 btn-primary'>{{confirm}}</a></div></div></div>
+    </script>
+
+    <script type="text/html" id="empty_row_template"><tr class="odd empty"><td colspan="{{colspan}}">No items to display.</td></tr></script>
+    <script type="text/html" id="alert_message_template"><div class="alert alert-dismissable fade in alert-{{type}}"><a class="close" data-dismiss="alert" href="#">&times;</a><p><strong>{{type_display}}</strong>
+    {{#safe}}
+      {{{message}}}
+    {{/safe}}
+    {{^safe}}
+      {{message}}
+    {{/safe}}
+  </p></div></script>
+
+  <script type="text/html" id="spinner-modal"><div class="modal loading"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><p>{{text}}&hellip;</p></div></div></div></div></script>
+
+  <script type="text/html" id="membership_template"><ul class="nav nav-pills btn-group btn-group-sm"><li class="member" data-{{step_slug}}-id="{{data_id}}"><span class="display_name">{{display_name}}</span></li><li class="active"><a class="btn btn-primary" href="#add_remove">{{text}}</a></li><li class="dropdown role_options"><a class="dropdown-toggle btn btn-default" data-toggle="dropdown" href="#"><span class="roles_display">{{roles_label}}</span><span></span></a><ul class="dropdown-menu role_dropdown clearfix">
+      {{#roles}}
+      <li data-role-id="{{role_id}}"><i class="fa fa-check"></i>  {{role_name}}</li>
+      {{/roles}}
+    </ul></li></ul></script>
+
+    <script src="http://10.240.205.10/dashboard/static/horizon/lib/bootstrap_datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+
+
 </head>
 
 <body>
     <div id='root'>
 
-        <fm-header></fm-header>
-
+        <!--<fm-header></fm-header>-->
+        <home></home>
         <div ng-view>
 
         </div>
 
     </div>
-
+    <!--
     <script src="assets/dll/vendor.dll.js"></script>
-
+    -->
 </html>

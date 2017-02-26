@@ -1,4 +1,5 @@
 let angular = require('angular');
+// import angular from 'angular';
 let ngRouter = require('angular-route');
 const routerConifg = require('./router.config.js');
 
@@ -22,6 +23,6 @@ angular.module("router", [ngRouter]).config(function($routeProvider, $locationPr
     // Set to use HTML5 mode, which removes the #! from modern browsers.
     // Only when config it and browser support HTML5 history API
     let isHtml5Mode = !!true && (window.history && 'pushState' in window.history);
-    $locationProvider.html5Mode(isHtml5Mode);
-    $locationProvider.hashPrefix('!');
+    // $locationProvider.html5Mode(isHtml5Mode);
+    // $locationProvider.hashPrefix('!');
 });

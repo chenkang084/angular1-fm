@@ -14,15 +14,15 @@ var webpackConfig = {
     devtool: 'cheap-module-source-map', //generate source map for developing
     entry: {
         app: __dirname + "/app/core/bootstrap.js", //the main file for start app
-        vendor: [
-            // 'angular',
-            // 'angular-route',
-            // 'angular-ui-bootstrap',
-            // 'lodash',
-            // 'bootstrap',
-            // 'bootstrap-loader',
-            // 'jquery'
-        ],
+        // vendor: [
+        //     'angular',
+        //     'angular-route',
+        //     'angular-ui-bootstrap',
+        //     'lodash',
+        //     'bootstrap',
+        //     'bootstrap-loader',
+        //     'jquery'
+        // ],
     },
 
     output: {
@@ -43,8 +43,9 @@ var webpackConfig = {
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
         alias: {
-            moment: path.join(__dirname, '/node_modules/moment/min/moment-with-locales.js'),
-            'font-awesome': path.join(__dirname, '/node_modules/font-awesome/scss/font-awesome.scss'),
+             moment: path.join(__dirname, '/node_modules/moment/min/moment-with-locales.js'),
+            'font-awesome': path.join(__dirname, '/node_modules/font-awesome/scss/font-awesome.scss')
+            // 'angular':path.join(__dirname, '/node_modules/.1.3.7@angular/angular.js')
         }
     },
     module: { //
@@ -56,6 +57,7 @@ var webpackConfig = {
                 test: /\.json$/,
                 loader: "json"
             },
+            { test: /[\/\\]angular\.js$/, loader: "exports?angular" },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -64,6 +66,7 @@ var webpackConfig = {
                     presets: ['es2015']
                 }
             },
+            
             {
                 test: /\.scss$/,
                 loader: 'style!css!postcss!sass',
@@ -111,10 +114,10 @@ var webpackConfig = {
 
         new ngAnnotatePlugin({ add: true }),
 
-        new webpack.DllReferencePlugin({
-            context: __dirname + "",
-            manifest: require('./app/assets/dll/vendor-manifest.json')
-        }),
+        // new webpack.DllReferencePlugin({
+        //     context: __dirname + "",
+        //     manifest: require('./app/assets/dll/vendor-manifest.json')
+        // }),
 
         new CopyWebpackPlugin([{
             from: './app/assets',

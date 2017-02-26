@@ -75,5 +75,16 @@ class HomePage extends BaseComponent {
 
 let homePage = new HomePage();
 
-angular.module(config.name)
-    .component('home', new HomePage());
+// angular.module(config.name)
+//     .directive('home', ()=>{
+//         return new HomePage();
+//     });
+
+
+angular.module(config.name).directive('home', function() {
+    return {
+        restrict: 'E',
+        template: '<div>Hi there</div>',
+        replace: true
+    };
+});

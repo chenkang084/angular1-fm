@@ -1,5 +1,5 @@
 const config = {
-    name: 'MyApp',
+    name: 'horizon.app',
     uri: {
         base: '/',
         host: '/',
