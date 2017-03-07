@@ -5,6 +5,7 @@ var webpack = require('webpack'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     _ = require('lodash'),
     path = require('path'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     env = _.trim(process.env.NODE_ENV);
 
 console.log("=============================" + env + "=============================");
@@ -66,7 +67,8 @@ var webpackConfig = {
             },
             {
                 test: /\.scss$/,
-                loader: 'style!css!postcss!sass',
+                // loader: 'style!css!postcss!sass',
+                loader: ExtractTextPlugin.extract([ 'css-loader', 'postcss-loader','sass-loader' ]),
                 // exclude: /node_modules/,
             },
             {
@@ -120,6 +122,10 @@ var webpackConfig = {
             from: './app/assets',
             to: 'assets'
         }]),
+
+        new ExtractTextPlugin('style.css', {
+            allChunks: true,
+        }),
 
     ],
 
