@@ -9,10 +9,10 @@
         "run-qa": "cross-env NODE_ENV=qa webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
         "run-prod": "cross-env NODE_ENV=prod webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
         "build-local": "cross-env NODE_ENV=local webpack --content-base public/ --progress --colors --inline --compress",
-        "build-qa": "npm run clean && npm run clean && cross-env NODE_ENV=qa webpack --content-base public/ --progress --colors --inline --compress",
-        "build-prod": "npm run clean && cross-env NODE_ENV=prod webpack --content-base public/ --progress --colors --inline --compress",
+        "build-qa": "npm run build-dll && cross-env NODE_ENV=qa webpack --content-base public/ --progress --colors --inline --compress",
+        "build-prod": "npm run build-dll && cross-env NODE_ENV=prod webpack --content-base public/ --progress --colors --inline --compress",
         "clean": "rimraf ./app/assets/dll/* && rimraf ./dist/*",
-        "build-dll": "rimraf ./app/assets/dll/* && webpack --colors --profile --display-modules --config webpack.dll.config.js "
+        "build-dll": "npm run clean && webpack --colors --profile --display-modules --config webpack.dll.config.js "
     },
     "author": "chenkang084@163.com",
     "license": "ISC",

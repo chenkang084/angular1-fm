@@ -3,7 +3,7 @@ import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';
 import ngAnimate from 'angular-animate';
 import 'restangular';
-import "bootstrap-loader"; // add bootstrap ui
+// import "bootstrap-loader"; // add bootstrap ui
 import "font-awesome";
 
 
