@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "presetup": "cnpm install",
+    "setup": "npm run clean && npm run build-dll",
     "start": "cross-env NODE_ENV=local webpack-dev-server --content-base ./ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
     "run-qa": "cross-env NODE_ENV=qa webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
     "run-prod": "cross-env NODE_ENV=prod webpack-dev-server --content-base public/ --progress --colors --inline --hot --compress --history-api-fallback --port 8090",
@@ -15,9 +17,6 @@
     "build-dll": "npm run clean && webpack --colors --profile --display-modules --config webpack.dll.config.js ",
     "lint": "eslint --fix --ext .js app/core/ "
   },
-  // "pre-commit": [
-  //   "lint"
-  // ],
   "author": "chenkang084@163.com",
   "license": "ISC",
   "dependencies": {
