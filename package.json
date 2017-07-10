@@ -15,7 +15,9 @@
     "build-dll": "npm run clean && webpack --colors --profile --display-modules --config webpack.dll.config.js ",
     "lint": "eslint --fix --ext .js app/core/ "
   },
-  "pre-commit": ["lint"],
+  "pre-commit": [
+    "lint"
+  ],
   "author": "chenkang084@163.com",
   "license": "ISC",
   "dependencies": {
@@ -65,6 +67,7 @@
     "html-webpack-plugin": "^2.24.0",
     "json-loader": "^0.5.4",
     "normalize.css": "^5.0.0",
+    "pre-commit": "^1.2.2",
     "resolve-url": "^0.2.1",
     "rimraf": "^2.5.4",
     "webpack-dev-server": "^1.16.2"
