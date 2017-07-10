@@ -3,17 +3,18 @@
  * bootstrap app 
  * 
  */
-import '../config/router.js';
-import './initAngular.js';
-import './services.js';
-import './component.js';
-import config from './initConfig.js';
-import angular from 'angular';
-import './libs.scss';
-require('es6-promise').polyfill();
+import angular from 'angular'
+import config from './initConfig.js'
+import '../config/router.js'
+import './initAngular.js'
+import './services.js'
+import './component.js'
+import './libs.scss'
+
+require('es6-promise').polyfill()
 
 angular.element(document).ready(() => {
-    angular.bootstrap(document, [config.name], {
-        strictDi: false
-    });
-});
+  angular.bootstrap(document, [config.name], {
+    strictDi: false,
+  })
+})

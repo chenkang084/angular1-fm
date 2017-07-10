@@ -12,7 +12,8 @@
     "build-qa": "npm run build-dll && cross-env NODE_ENV=qa webpack --content-base public/ --progress --colors --inline --compress",
     "build-prod": "npm run build-dll && cross-env NODE_ENV=prod webpack --content-base public/ --progress --colors --inline --compress",
     "clean": "rimraf ./app/assets/dll/* && rimraf ./dist/*",
-    "build-dll": "npm run clean && webpack --colors --profile --display-modules --config webpack.dll.config.js "
+    "build-dll": "npm run clean && webpack --colors --profile --display-modules --config webpack.dll.config.js ",
+    "lint": "eslint --fix --ext .js app/core/ "
   },
   "author": "chenkang084@163.com",
   "license": "ISC",
@@ -54,6 +55,10 @@
     "bluebird": "^3.4.7",
     "bootstrap-loader": "^1.3.2",
     "copy-webpack-plugin": "^4.0.1",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-import": "^2.7.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.0",
