@@ -3,7 +3,7 @@ const config = {
     uri: {
         base: '/',
         host: '/',
-        api: "http://localhost:8080/game-be/"
+        api: "http://localhost:9000/game-be/"
     },
     user: {
         nt: 'kanchen',

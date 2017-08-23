@@ -1,22 +1,28 @@
-import BaseRemoteService from './baseRemoteService.js';
-import config from '../core/initConfig.js';
+import BaseRemoteService from "./baseRemoteService.js";
+import config from "../core/initConfig.js";
 class HomeService extends BaseRemoteService {
-    constructor(Restangular) {
-        super(Restangular);
-        this.Restangular = Restangular;
-    }
+  constructor(Restangular) {
+    super(Restangular);
+    this.Restangular = Restangular;
+  }
 
-    testSend() {
+  testSend() {
+    let params = {
+      firstName: "Kang",
+      lastName: "Chen",
+      ntlogin: "kanchen"
+    };
 
-        let params = {
-            'firstName': 'Kang',
-            'lastName': 'Chen',
-            'ntlogin': 'kanchen'
-        };
+    // return Promise.resolve(
+    //   $.ajax({
+    //     // url: "/game-be/initGoldCoins",
+    //     url: "/game-be/auth",
+    //     type: "GET"
+    //   })
+    // );
 
-        return this.doPost('initGoldCoins',params);
-    }
+    return this.doPost('initGoldCoins',params);
+  }
 }
 
-angular.module(config.name)
-    .service('HomeService', HomeService);
+angular.module(config.name).service("HomeService", HomeService);
